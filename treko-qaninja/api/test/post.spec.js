@@ -76,10 +76,11 @@ describe('post', () => {
                 .send(task)
                 .end((err, res) => {
                     expect(res).to.has.status(409);
-                    console.log(res.body)
+                    //expect(res.body.errmsg).to.include('duplicate key')
+                    expect(res.body.code).to.equal(11000)
                     done()
                 })
-            })
         })
+    })    
 
 })    
